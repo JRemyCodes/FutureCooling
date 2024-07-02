@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+$desktop-bp: 1000px;
+$tablet-bp: 800px;
+$mobile-bp: 500px;
+
+$colors: (
+  dark-blue: #1F2D33,
+  blue-one: #27AAE1,
+  blue-two: #91C8ED,
+  light: #F6FBFF,
+  grey: #60686C,
+);
+
+@function color($name) {
+  @return map-get($colors, $name);
+}
+
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Manrope", sans-serif;
+  letter-spacing: -1px;
+  word-spacing: 4px;
+}
+
+body {
+  background: color(light);
+}
+
+.full-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 5rem;
+  width: 100%;
+  opacity: 1;
+
+  #lg-logo, #sm-logo {
+    height: clamp(2.5rem, 4vh, 3.5rem);
+    cursor: pointer;
+  }
+
+  #sm-logo:hover {
+    transform: scale(1.15);
+    transition: 0.5s;
+  }
+
+  .links {
+
+    #menu {
+      height: clamp(1.5rem, 1.75vh, 2rem);
+      cursor: pointer;
+    }
+
+    #menu:hover {
+      transform: scale(1.15);
+      transition: 0.5s;
+    }
+
+    ul {
+      display: flex;
+      list-style: none;
+      gap: 0.5em;
+      
+      a {
+        text-decoration: none;
+        color: color(dark-blue);
+        font-weight: 500;
+        font-size: 1.15rem;
+        padding: 0.5em 1em;
+        border-radius: 30px;
+      }
+
+      a:hover {
+        color: color(light);
+        background: linear-gradient(68deg, color(dark-blue) 33%,color(blue-two) 100%);
+        transition: 0.4s ease-in;
+      }
+
+    }
+  }
+}
+
+
+.hero {
+  padding: 1em 5rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  h1 {
+    color: color(dark-blue);
+    margin-top: 5em;
+    font-size: clamp(2rem, 7vw, 3rem);
+    font-weight: 800;
+    text-align: center;
+  }
+
+  p {
+    color: color(grey);
+    max-width: 55ch;
+    line-height: 2;
+    font-size: clamp(1.05rem, 3vw, 1.25rem);
+    letter-spacing: -0.5px;
+    text-align: center;
+  }
+
+  button {
+    font-size: clamp(1.2rem, 4vw, 1.4rem);
+    font-weight: 600;
+    padding: 0.5em 1.75em;
+    border-radius: 30px;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-group {
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    #quote-btn {
+      color: color(light);
+      background: linear-gradient(68deg, color(dark-blue) 33%,color(blue-two) 100%);
+    }
+
+    #services-btn {
+      background: none;
+      font-weight: normal;
+      outline: 2px solid color(dark-blue);
+    }
+  }
+}
+
+/* Media Querie's*/
+
+/* Width */
+
+@media (max-width: $tablet-bp) {
+  nav, .hero {
+    padding: 1em 3em;
+  }
+
+  .hero p {
+    max-width: 90%;
+  }
+
+  .btn-group {
+    flex-direction: column;
+    width: 100%;
+
+    button {
+      width: 80%;
+    }
+  }
+}
+
+@media (max-width: $mobile-bp) {
+  nav, .hero {
+    padding: 1em;
+  }
+
+  .hero p {
+    max-width: 100%;
+  }
+}
+
+/* Height */
+@media (max-height: 700px) {
+  .hero h1 {
+    margin-top: 3em;
+  }
+}
