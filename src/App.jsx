@@ -1,11 +1,13 @@
 import React from "react";
+import Landing from "./Landing";
+import Info from "./Info";
 import './App.scss';
-import Landing from './Landing';
 
 function App() {
   return (
     <>
       <Landing />
+      <Info />
     </>
   );
 }

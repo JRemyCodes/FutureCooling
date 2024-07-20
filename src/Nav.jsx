@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 
-export default function Navigation() {
+export default function Nav() {
     const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 800);
     const navRef = useRef(null);
 

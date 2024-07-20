@@ -1,13 +1,20 @@
 import React from "react";
-import Navigation from "./Navigation";
-import Hero from './Hero';
+import Nav from "./Nav";
+import Hero from "./Hero";
+import CallHours from "./CallHours";
 
-
-export default function Landing() {
+const Landing = () => {
     return (
-        <div className="full-container">
-            <Navigation />
+        <div id="landing">
+            <Nav />
             <Hero />
+            <CallHours
+                phoneNumber="(123)-345-6789"
+                startHour={8}
+                endHour={5}
+            />
         </div>
     );
-}
+};
+
+export default Landing;
